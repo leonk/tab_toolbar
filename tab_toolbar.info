@@ -2,3 +2,4 @@ name = Tabs in Toolbar
 description = Moves the tabs into their own toolbar
 package = Other
 core = 7.x
+dependencies[] = menu
