@@ -65,6 +65,7 @@ body.page-node.tab-toolbar #edit-trigger-link, body.tab-toolbar #l10n-client {
 }
 
 /* Localization client integration */
+body.tab-toolbar #l10n-client { bottom: auto; box-shadow: 3px 3px 5px #aaa; }
 body.tab-toolbar #l10n-client .labels { height: auto; background-color: #ccc; color: #222;}
 body.tab-toolbar #l10n-client .labels .toggle { margin: 0; z-index: 101; text-transform: none; margin-right: 27px; color: #fff; }
 body.tab-toolbar.admin-menu #l10n-client .labels .toggle {  }
