@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * @file
+ * Contains tab_toolbar.module.
+ */
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_toolbar().
+ */
+function tab_toolbar_toolbar() {
+
+  $manager = \Drupal::service('plugin.manager.menu.local_task');
+  $tasks = $manager->getLocalTasks(\Drupal::routeMatch()->getRouteName());
+
+  $subtree_tasks = array();
+  foreach ($tasks['tabs'] as $key => $tab) {
+    $subtree_tasks[$key] = array(
+      'title' => $tab['#link']['title'],
+      'url' => $tab['#link']['url'],
+      'weight' => $tab['#weight'],
+    );
+  }
+
+  $items['primary_tasks'] = array(
+    '#type' => 'toolbar_item',
+    'tab' => array(
+      '#type' => 'link',
+      '#title' => t('Actions'),
+      '#url' => Url::fromRoute('<front>'),
+      '#attributes' => array(
+        'title' => t('Home page'),
+        'class' => array('toolbar-icon', 'toolbar-icon-home'),
+      ),
+    ),
+    'tray' => array(
+      '#heading' => t('Actions'),
+      'toolbar_actions' => array(
+        '#type' => 'container',
+        '#attributes' => array(
+          'class' => array('toolbar-menu-administration'),
+        ),
+        '#theme' => 'menu_local_tasks',
+        '#primary' => $tasks['tabs'],
+      ),
+    ),
+  );
+
+  return $items;
+}
