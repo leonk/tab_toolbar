@@ -27,15 +27,15 @@ function tab_toolbar_toolbar() {
     '#type' => 'toolbar_item',
     'tab' => array(
       '#type' => 'link',
-      '#title' => t('Actions'),
+      '#title' => t('Page Actions'),
       '#url' => Url::fromRoute('<front>'),
       '#attributes' => array(
         'title' => t('Home page'),
-        'class' => array('toolbar-icon', 'toolbar-icon-home'),
+        'class' => array('toolbar-icon', 'toolbar-icon-edit'),
       ),
     ),
     'tray' => array(
-      '#heading' => t('Actions'),
+      '#heading' => t('Page actions'),
       'toolbar_actions' => array(
         '#type' => 'container',
         '#attributes' => array(
