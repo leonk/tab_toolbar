@@ -52,6 +52,9 @@ function tab_toolbar_toolbar() {
         '#primary' => $tasks['tabs'],
       ),
     ),
+    '#cache' => array(
+      'contexts' => array('user.permissions', 'url.path'),
+    ),
   );
 
   return $items;
